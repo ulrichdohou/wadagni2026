@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { DynamicIcon } from "@/components/shared/icon-map";
 import { timeline } from "@/data/timeline";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight, Heart, Users, Sparkles } from "lucide-react";
 
 function TimelineDot({ status }: { status: "done" | "now" | "future" }) {
   if (status === "now") {
@@ -127,7 +130,7 @@ export function BilanTimeline() {
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, var(--benin-green) 1px, transparent 0)', backgroundSize: '60px 60px' }}>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 relative">
+      <div className="mx-auto max-w-6xl px-[--container-px] relative">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 md:mb-32">
           <span className="section-eyebrow mb-3 block">Chronologie</span>
@@ -153,9 +156,65 @@ export function BilanTimeline() {
           </div>
         </div>
 
-        {/* Final CTA link */}
-        <div className="mt-20 text-center">
-           <p className="font-serif italic text-2xl text-ink-muted">
+        {/* Contribution CTA Section */}
+        <div className="mt-32 md:mt-48 relative">
+           <div className="absolute inset-0 bg-benin-green/5 rounded-[48px] -z-10 blur-xl" />
+           <div className="bg-white rounded-[40px] border border-border/60 p-8 md:p-16 text-center relative overflow-hidden shadow-sm">
+             {/* Decorative patterns */}
+             <div className="absolute top-0 left-0 w-32 h-32 bg-benin-yellow/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+             <div className="absolute bottom-0 right-0 w-64 h-64 bg-benin-green/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+             
+             <div className="relative z-10 max-w-2xl mx-auto">
+               <div className="inline-flex items-center gap-2 bg-benin-green/10 text-benin-green px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
+                 <Sparkles className="h-4 w-4" />
+                 L'aventure continue
+               </div>
+               
+               <h2 className="editorial-heading text-4xl md:text-5xl text-ink mb-8">
+                 Et demain ? <br/>
+                 <span className="text-benin-green">Le prochain chapitre s'écrit avec vous.</span>
+               </h2>
+               
+               <p className="text-lg text-ink-secondary mb-12">
+                 Le bilan est solide, mais l'avenir demande votre énergie. Rejoignez le mouvement Wadagni 2026 pour contribuer activement à la transformation de votre département.
+               </p>
+               
+               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                 <Button size="lg" className="rounded-full h-14 px-10 text-lg shadow-xl hover:shadow-2xl transition-all" asChild>
+                    <Link href="/qg">
+                      Devenir contributeur
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                 </Button>
+                 <Button variant="outline" size="lg" className="rounded-full h-14 px-10 text-lg border-2" asChild>
+                    <Link href="/assistant">
+                      <Users className="mr-2 h-5 w-5" />
+                      Rejoindre un cercle citoyen
+                    </Link>
+                 </Button>
+               </div>
+               
+               <div className="mt-12 pt-12 border-t border-border/40 flex flex-wrap justify-center gap-8 text-sm text-ink-muted">
+                 <div className="flex items-center gap-2">
+                   <Heart className="h-4 w-4 text-benin-red" fill="currentColor" />
+                   <span>Engagement volontaire</span>
+                 </div>
+                 <div className="flex items-center gap-2">
+                   <div className="h-2 w-2 rounded-full bg-benin-green" />
+                   <span>Action locale</span>
+                 </div>
+                 <div className="flex items-center gap-2">
+                   <div className="h-2 w-2 rounded-full bg-benin-yellow" />
+                   <span>Vision 2030</span>
+                 </div>
+               </div>
+             </div>
+           </div>
+        </div>
+
+        {/* Quote placeholder */}
+        <div className="mt-24 text-center">
+           <p className="font-serif italic text-2xl text-ink-muted/60">
              "Le développement n'est pas une destination, c'est un voyage."
            </p>
         </div>
