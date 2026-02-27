@@ -233,7 +233,7 @@ export function EspaceCitoyenContent() {
                  
                  <div className="mb-12">
                    <p className="text-[10px] font-bold text-benin-yellow uppercase tracking-[0.3em] mb-3">Carte de Citoyen Engagé</p>
-                   <p className="font-serif text-4xl font-bold tracking-tight">Bénin 2026</p>
+                   <p className="font-serif text-4xl font-bold tracking-tight">Wadagni-Talata</p>
                  </div>
                  
                  <div className="flex items-end justify-between pt-8 border-t border-white/10">

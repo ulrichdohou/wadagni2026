@@ -15,7 +15,7 @@ export function ChatTeaser() {
             <span className="text-benin-green">Une réponse immédiate.</span>
           </h2>
           <p className="text-lg text-ink-secondary max-w-2xl mx-auto">
-            Notre assistant intelligent analyse des milliers de documents officiels pour vous répondre en toute transparence, 24h/24.
+            Row & Talata analysent des milliers de documents officiels pour vous répondre en toute transparence, 24h/24.
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export function ChatTeaser() {
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="font-bold text-ink text-sm">Assistant Wadagni</div>
+                  <div className="font-bold text-ink text-sm">Row & Talata</div>
                   <div className="flex items-center gap-1.5">
                     <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
                     <span className="text-xs text-ink-muted font-medium">En ligne</span>

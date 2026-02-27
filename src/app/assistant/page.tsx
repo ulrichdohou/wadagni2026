@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/footer";
 import { AssistantChat } from "@/components/assistant/assistant-chat";
 
 export const metadata: Metadata = {
-  title: "L'Assistant Intelligent — HORIZON BÉNIN",
+  title: "Row & Talata — Votre IA de Vision",
   description:
     "Posez vos questions sur le bilan du duo Romuald Wadagni & Mariam Chabi Talata. Une IA répond avec des sources officielles.",
 };

@@ -134,11 +134,11 @@ export function DecoderContent() {
                </div>
                <h2 className="editorial-heading text-4xl text-ink mb-6">Une question spécifique ?</h2>
                <p className="text-lg text-ink-secondary mb-12">
-                 Notre intelligence artificielle a été entraînée sur l'intégralité des rapports officiels pour vous répondre avec précision sur n'importe quel sujet du bilan.
+                 Row & Talata ont été entraînés sur l'intégralité des rapports officiels pour vous répondre avec précision sur n'importe quel sujet du bilan.
                </p>
                <Button size="lg" className="rounded-full px-10 h-16 text-lg shadow-xl hover:shadow-2xl transition-all group/btn" asChild>
                  <Link href="/assistant">
-                   Interroger l'Assistant Intelligent
+                   Discuter avec Row & Talata
                    <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
                  </Link>
                </Button>

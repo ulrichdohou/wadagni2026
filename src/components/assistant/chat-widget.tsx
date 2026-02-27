@@ -124,7 +124,7 @@ export function ChatWidget() {
                   </div>
                   <h4 className="font-serif text-xl font-bold text-ink mb-2">Comment pouvons-nous <br/>vous aider ?</h4>
                   <p className="text-xs text-ink-secondary leading-relaxed">
-                    Posez vos questions sur le programme <br/>Wadagni-Talata 2026-2031.
+                    Posez vos questions sur la vision <br/>de Row & Talata pour 2026-2031.
                   </p>
                 </div>
               )}
