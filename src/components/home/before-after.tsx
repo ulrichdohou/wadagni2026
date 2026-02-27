@@ -98,7 +98,7 @@ function StatCard({
 /* ------------------------------------------------------------------ */
 export function BeforeAfter() {
   return (
-    <section className="py-20 bg-surface relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-surface relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-benin-yellow/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-benin-green/5 rounded-full blur-3xl -z-10" />

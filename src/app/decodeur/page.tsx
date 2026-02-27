@@ -13,7 +13,7 @@ export default function DecodeurPage() {
   return (
     <>
       <Header />
-      <main className="bg-surface min-h-screen">
+      <main className="bg-surface min-h-screen pt-20">
         <DecoderContent />
       </main>
       <Footer />

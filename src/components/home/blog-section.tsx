@@ -34,7 +34,7 @@ const posts = [
 
 export function BlogSection() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 md:py-32 bg-white">
       <div className="container-safe">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">

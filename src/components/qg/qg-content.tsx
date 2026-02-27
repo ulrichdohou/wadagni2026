@@ -28,7 +28,7 @@ export function QGContent() {
     : 100;
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-24 md:py-32 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-benin-green/5 to-transparent -z-10" />
 

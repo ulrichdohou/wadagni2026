@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export function Testimonials() {
   return (
-    <section className="bg-benin-green-muted/30 py-20 relative overflow-hidden">
+    <section className="bg-benin-green-muted/30 py-24 md:py-32 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, var(--benin-green) 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
 

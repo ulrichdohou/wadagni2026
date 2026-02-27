@@ -13,9 +13,9 @@ const achievements = [
 
 export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden bg-surface py-12 lg:py-20">
+    <section className="relative w-full overflow-hidden bg-surface pt-32 pb-20 lg:pt-48 lg:pb-32">
       <div className="container-safe">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           {/* Text Content */}
           <motion.div

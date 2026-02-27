@@ -18,7 +18,7 @@ export function DepartmentExplorer() {
   );
 
   return (
-    <section className="bg-surface-alt/50 py-20">
+    <section className="bg-surface-alt/50 py-24 md:py-32">
       <div className="container-narrow">
         
         {/* Header */}
