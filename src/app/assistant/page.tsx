@@ -1,4 +1,4 @@
-import type { Metadata } from "metadata";
+import type { Metadata } from "next";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AssistantChat } from "@/components/assistant/assistant-chat";

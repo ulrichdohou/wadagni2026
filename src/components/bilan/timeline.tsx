@@ -181,7 +181,7 @@ export function BilanTimeline() {
                
                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                  <Button size="lg" className="rounded-full h-14 px-10 text-lg shadow-xl hover:shadow-2xl transition-all" asChild>
-                    <Link href="/qg">
+                    <Link href="/espace-citoyen">
                       Devenir contributeur
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

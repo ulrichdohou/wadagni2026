@@ -36,34 +36,36 @@ export function FinalCTA() {
         </p>
 
         {/* Dual Input Collection Form */}
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-2 rounded-[40px] shadow-2xl max-w-2xl mx-auto mb-12">
-          <form className="flex flex-col md:flex-row gap-2" onSubmit={(e) => e.preventDefault()}>
-            <div className="flex-1 relative">
-              <Mail className="absolute left-5 top-1/2 -translate-y-1/2 size-4 text-white/40" />
+        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-2 rounded-[40px] shadow-2xl max-w-2xl mx-auto mb-12 overflow-hidden">
+          <form className="flex flex-col md:flex-row items-stretch" onSubmit={(e) => e.preventDefault()}>
+            <div className="flex-1 relative flex items-center">
+              <Mail className="absolute left-6 size-4 text-benin-yellow/60" />
               <input 
                 type="email" 
                 placeholder="Votre email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full h-14 bg-transparent pl-12 pr-4 rounded-full outline-none focus:bg-white/5 transition-all text-sm"
+                className="w-full h-16 bg-transparent pl-14 pr-4 outline-none focus:bg-white/5 transition-all text-sm"
               />
             </div>
             
-            <div className="hidden md:block w-px h-8 bg-white/10 self-center" />
+            <div className="hidden md:flex items-center px-2">
+              <div className="w-px h-8 bg-white/20" />
+            </div>
             
-            <div className="flex-1 relative">
-              <Phone className="absolute left-5 top-1/2 -translate-y-1/2 size-4 text-white/40" />
+            <div className="flex-1 relative flex items-center">
+              <Phone className="absolute left-6 size-4 text-benin-yellow/60" />
               <input 
                 type="tel" 
                 placeholder="Téléphone (WhatsApp)" 
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full h-14 bg-transparent pl-12 pr-4 rounded-full outline-none focus:bg-white/5 transition-all text-sm"
+                className="w-full h-16 bg-transparent pl-14 pr-4 outline-none focus:bg-white/5 transition-all text-sm"
               />
             </div>
 
             <Button 
-              className="h-14 px-8 rounded-full bg-benin-yellow hover:bg-benin-yellow-dark text-[#0C1A13] font-bold shadow-lg shadow-benin-yellow/20"
+              className="h-14 md:h-auto px-10 m-1 rounded-full bg-benin-yellow hover:bg-benin-yellow-dark text-[#0C1A13] font-bold shadow-lg"
             >
               S'engager
               <ArrowRight className="ml-2 size-5" />
