@@ -86,17 +86,18 @@
   --color-whatsapp-dark: #1DA851;
 
   /* === Spacing tokens === */
-  --content-max: 1080px; /* Wider, more breathable */
-  --content-wide: 1280px;
+  --content-max: 1140px; /* Increased from 1080px */
+  --content-wide: 1320px; /* Increased from 1280px */
+  --container-px: 2rem; /* Standard horizontal padding */
 
   /* === Radius === */
-  --radius-card: 24px; /* Softer, rounder cards */
-  --radius-button: 9999px; /* Pill buttons */
+  --radius-card: 32px; 
+  --radius-button: 9999px; 
   --radius-pill: 9999px;
 }
 
 :root {
-  --radius: 1rem; /* 16px base radius */
+  --radius: 1.25rem; 
   --background: #FCFBF9;
   --foreground: #2D3330;
   
@@ -115,13 +116,13 @@
   --muted: #F2EFE9;
   --muted-foreground: #5C6661;
   
-  --accent: #FBEFE9; /* Warm accent background */
-  --accent-foreground: #B85C38; /* Clay text */
+  --accent: #FBEFE9; 
+  --accent-foreground: #B85C38; 
   
   --destructive: #B85C38;
   --destructive-foreground: #FFFFFF;
   
-  --border: #E6E2D8;
+  --border: #E6E2D8; /* Slightly softer */
   --input: #E6E2D8;
   --ring: #2E5C46;
   

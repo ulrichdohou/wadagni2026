@@ -38,7 +38,7 @@ export function Header() {
           : "bg-transparent py-4"
       )}
     >
-      <div className="mx-auto max-w-[--content-wide] px-6 flex items-center justify-between">
+      <div className="mx-auto max-w-[--content-wide] px-[--container-px] flex items-center justify-between">
         {/* Logo - Natural & Elegant */}
         <Link href="/" className="group flex items-center gap-2">
           <div className="h-8 w-8 rounded-full bg-benin-green flex items-center justify-center text-white font-serif font-bold text-lg shadow-sm group-hover:bg-benin-green-dark transition-colors">
