@@ -1,28 +1,30 @@
 import type { Metadata } from "next";
 import { outfit, newsreader, jetbrainsMono } from "@/lib/fonts";
 import "./globals.css";
+import { ChatWidget } from "@/components/assistant/chat-widget";
 
 export const metadata: Metadata = {
   title: {
-    default: "Bénin 2026 — 10 ans de preuves",
-    template: "%s | Bénin 2026",
+    default: "HORIZON BÉNIN — WadagniTalata2026",
+    template: "%s | HORIZON BÉNIN",
   },
   description:
-    "Plateforme officielle de la campagne présidentielle 2026 au Bénin. 10 ans de résultats concrets : routes, électricité, eau, éducation, industrie. Rejoignez le mouvement.",
-  metadataBase: new URL("https://benin2026.bj"),
+    "HORIZON BÉNIN : La vision du duo Romuald Wadagni & Mariam Chabi Talata pour le Bénin. 10 ans de résultats concrets, une ambition pour 2026-2031.",
+  metadataBase: new URL("https://horizonbenin2026.bj"),
+  keywords: ["Bénin", "HORIZON BÉNIN", "WadagniTalata2026", "Romuald Wadagni", "Mariam Chabi Talata", "Programme 2026", "Développement Bénin"],
   openGraph: {
     type: "website",
     locale: "fr_BJ",
-    siteName: "Bénin 2026",
-    title: "Bénin 2026 — 10 ans de preuves",
+    siteName: "HORIZON BÉNIN",
+    title: "HORIZON BÉNIN — L'Avenir en Confiance",
     description:
-      "10 ans de résultats concrets. Sécurisons l'avenir du Bénin ensemble.",
+      "Découvrez la trajectoire de progrès portée par le duo Wadagni-Talata. Ensemble vers de nouveaux horizons pour le Bénin.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bénin 2026 — 10 ans de preuves",
+    title: "HORIZON BÉNIN — WadagniTalata2026",
     description:
-      "10 ans de résultats concrets. Sécurisons l'avenir du Bénin ensemble.",
+      "10 ans de preuves, une vision claire pour l'avenir du Bénin.",
   },
 };
 
@@ -38,6 +40,7 @@ export default function RootLayout({
     >
       <body className="font-sans bg-surface text-ink antialiased overflow-x-hidden">
         {children}
+        <ChatWidget />
       </body>
     </html>
   );

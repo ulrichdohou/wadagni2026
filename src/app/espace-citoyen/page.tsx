@@ -4,9 +4,9 @@ import { Footer } from "@/components/layout/footer";
 import { EspaceCitoyenContent } from "@/components/espace-citoyen/espace-citoyen-content";
 
 export const metadata: Metadata = {
-  title: "Espace Citoyen — Wadagni 2026",
+  title: "Espace Citoyen — HORIZON BÉNIN",
   description:
-    "Votre espace de mobilisation citoyenne. Missions, défis et engagement pour l'avenir.",
+    "Votre espace de mobilisation citoyenne. Missions, défis et engagement pour l'avenir avec le duo Wadagni-Talata.",
 };
 
 export default function EspaceCitoyenPage() {

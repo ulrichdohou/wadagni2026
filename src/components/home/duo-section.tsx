@@ -10,24 +10,20 @@ export function DuoSection() {
   return (
     <section className="py-24 bg-surface-alt/30 relative overflow-hidden">
       <div className="container-safe relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="section-eyebrow mb-3 block">Le Duo de la Continuité</span>
+        <div className="text-center max-w-3xl mx-auto mb-16 relative">
+          <div className="inline-flex items-center gap-2 bg-benin-yellow text-[#0C1A13] font-bold text-[10px] uppercase tracking-[0.3em] px-6 py-2 rounded-full shadow-lg mb-8 border-2 border-white">
+            Le Duo HORIZON BÉNIN
+          </div>
+          <span className="section-eyebrow mb-3 block">Engagement & Rigueur</span>
           <h2 className="editorial-heading text-4xl md:text-6xl text-ink mb-6">
-            Une vision, <span className="text-benin-green italic">deux piliers.</span>
+            Ouvrir de <span className="text-benin-green italic">nouveaux horizons.</span>
           </h2>
           <p className="text-lg text-ink-secondary leading-relaxed">
             {CANDIDATE_DUO.vision}
           </p>
         </div>
 
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch max-w-5xl mx-auto">
-          {/* Connector Badge */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:flex items-center justify-center">
-            <div className="bg-benin-yellow text-[#0C1A13] font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full shadow-2xl border-4 border-white rotate-12">
-              Le Duo Candidat
-            </div>
-          </div>
-
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch max-w-5xl mx-auto pt-8">
           {/* President */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

@@ -7,7 +7,6 @@ import { waUrl } from "@/lib/whatsapp";
 import { useState } from "react";
 
 export function FinalCTA() {
-  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
   return (
@@ -35,29 +34,14 @@ export function FinalCTA() {
           Rejoignez la dynamique citoyenne pour être informé en priorité et participer aux grands rendez-vous de la nation.
         </p>
 
-        {/* Dual Input Collection Form */}
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-2 rounded-[40px] shadow-2xl max-w-2xl mx-auto mb-12 overflow-hidden">
-          <form className="flex flex-col md:flex-row items-stretch" onSubmit={(e) => e.preventDefault()}>
-            <div className="flex-1 relative flex items-center">
-              <Mail className="absolute left-6 size-4 text-benin-yellow/60" />
-              <input 
-                type="email" 
-                placeholder="Votre email" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full h-16 bg-transparent pl-14 pr-4 outline-none focus:bg-white/5 transition-all text-sm"
-              />
-            </div>
-            
-            <div className="hidden md:flex items-center px-2">
-              <div className="w-px h-8 bg-white/20" />
-            </div>
-            
+        {/* Single Input Collection Form */}
+        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-2 rounded-[40px] shadow-2xl max-w-md mx-auto mb-12 overflow-hidden">
+          <form className="flex flex-col sm:flex-row items-stretch" onSubmit={(e) => e.preventDefault()}>
             <div className="flex-1 relative flex items-center">
               <Phone className="absolute left-6 size-4 text-benin-yellow/60" />
               <input 
                 type="tel" 
-                placeholder="Téléphone (WhatsApp)" 
+                placeholder="Votre numéro WhatsApp" 
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className="w-full h-16 bg-transparent pl-14 pr-4 outline-none focus:bg-white/5 transition-all text-sm"
@@ -65,7 +49,7 @@ export function FinalCTA() {
             </div>
 
             <Button 
-              className="h-14 md:h-auto px-10 m-1 rounded-full bg-benin-yellow hover:bg-benin-yellow-dark text-[#0C1A13] font-bold shadow-lg"
+              className="h-14 sm:h-auto px-10 m-1 rounded-full bg-benin-yellow hover:bg-benin-yellow-dark text-[#0C1A13] font-bold shadow-lg"
             >
               S'engager
               <ArrowRight className="ml-2 size-5" />

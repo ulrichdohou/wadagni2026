@@ -4,9 +4,9 @@ import { Footer } from "@/components/layout/footer";
 import { AssistantChat } from "@/components/assistant/assistant-chat";
 
 export const metadata: Metadata = {
-  title: "L'Assistant Intelligent — Wadagni 2026",
+  title: "L'Assistant Intelligent — HORIZON BÉNIN",
   description:
-    "Posez vos questions sur le bilan du gouvernement béninois. Une IA répond avec des sources officielles.",
+    "Posez vos questions sur le bilan du duo Romuald Wadagni & Mariam Chabi Talata. Une IA répond avec des sources officielles.",
 };
 
 export default function AssistantPage() {

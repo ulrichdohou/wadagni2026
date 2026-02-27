@@ -86,9 +86,9 @@
   --color-whatsapp-dark: #1DA851;
 
   /* === Spacing tokens === */
-  --content-max: 1100px; 
-  --content-wide: 1280px; 
-  --container-px: clamp(1rem, 5vw, 2.5rem); /* More balanced padding */
+  --content-max: 1200px; 
+  --content-wide: 1440px; 
+  --container-px: clamp(1.5rem, 6vw, 3.5rem); /* Slightly more generous but balanced */
 
   /* === Radius === */
   --radius-card: 32px; 

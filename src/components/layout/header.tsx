@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Heart, Mail, Phone, ArrowRight, ShieldCheck } from "lucide-react";
+import { Menu, X, Heart, Mail, Phone, ArrowRight, ShieldCheck, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
@@ -12,20 +12,27 @@ import { motion } from "framer-motion";
 
 const navItems = [
   { label: "Accueil", href: "/" },
-  { label: "Bilan", href: "/bilan" },
-  { label: "Vrai ou Faux", href: "/decodeur" },
-  { label: "L'Assistant", href: "/assistant" },
+  { label: "Le Bilan", href: "/bilan" },
+  { label: "L'Agenda", href: "/agenda" },
+  { label: "Décodeur", href: "/decodeur" },
   { label: "Espace Citoyen", href: "/espace-citoyen" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isOverDark, setIsOverDark] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      // Check if scrolled near the bottom (Footer area)
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const totalHeight = document.documentElement.scrollHeight;
+      // If we are within 400px of the bottom, we are likely over the dark footer
+      setIsOverDark(scrollPosition > totalHeight - 400);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -36,31 +43,47 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-500",
         scrolled
-          ? "bg-surface/30 backdrop-blur-3xl shadow-sm border-b border-white/10 py-3"
+          ? cn(
+              "backdrop-blur-3xl shadow-sm border-b py-3",
+              isOverDark 
+                ? "bg-black/20 border-white/10 text-white" 
+                : "bg-surface/60 border-black/5"
+            )
           : "bg-transparent py-6"
       )}
     >
       <div className="container-safe flex items-center justify-between">
-        {/* Logo - Premium Serif Design */}
-        <Link href="/" className="group flex items-center gap-3">
+        {/* Logo - WT Icon only */}
+        <Link href="/" className="group flex items-center gap-3 shrink-0">
           <div className="relative">
-            <div className="h-10 w-10 rounded-2xl bg-benin-green flex items-center justify-center text-white font-serif font-bold text-xl shadow-lg shadow-benin-green/20 group-hover:rotate-6 transition-transform">
-              W
+            <div className={cn(
+              "h-10 w-10 rounded-2xl flex items-center justify-center font-serif font-bold text-xl shadow-lg transition-colors group-hover:rotate-6",
+              isOverDark 
+                ? "bg-white text-[#0C1A13]" 
+                : "bg-benin-green text-white shadow-benin-green/20"
+            )}>
+              HB
             </div>
             <div className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full bg-benin-yellow border-2 border-white shadow-sm" />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-xl font-bold text-ink leading-none tracking-tight">
-              Wadagni<span className="text-benin-green">2026</span>
+            <span className={cn(
+              "font-serif text-xl font-bold leading-none tracking-tight transition-colors",
+              isOverDark ? "text-white" : "text-ink"
+            )}>
+              HORIZON <span className="text-benin-yellow">BÉNIN</span>
             </span>
-            <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-ink-muted mt-1 leading-none">
-              Bâtir l&apos;Avenir
+            <span className={cn(
+              "text-[8px] font-bold uppercase tracking-[0.3em] mt-1 leading-none transition-colors",
+              isOverDark ? "text-white/50" : "text-ink-muted"
+            )}>
+              Wadagni &bull; Talata
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation - Clean & Breathable */}
-        <nav className="hidden lg:flex items-center gap-10">
+        <nav className="hidden xl:flex items-center gap-8">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -68,15 +91,20 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-bold uppercase tracking-widest transition-colors hover:text-benin-green relative py-1",
-                  isActive ? "text-benin-green" : "text-ink-secondary"
+                  "text-[13px] font-bold uppercase tracking-[0.15em] transition-colors relative py-1",
+                  isOverDark 
+                    ? (isActive ? "text-benin-yellow" : "text-white/70 hover:text-white")
+                    : (isActive ? "text-benin-green" : "text-ink-secondary hover:text-benin-green")
                 )}
               >
                 {item.label}
                 {isActive && (
                   <motion.span 
                     layoutId="header-active"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-benin-green rounded-full" 
+                    className={cn(
+                      "absolute -bottom-1 left-0 right-0 h-0.5 rounded-full",
+                      isOverDark ? "bg-benin-yellow" : "bg-benin-green"
+                    )} 
                   />
                 )}
               </Link>
@@ -89,47 +117,99 @@ export function Header() {
           <Dialog>
             <DialogTrigger asChild>
               <Button 
-                className="hidden md:inline-flex rounded-full px-8 bg-benin-green hover:bg-benin-green-dark text-white font-bold shadow-lg shadow-benin-green/10 transition-all hover:scale-105"
+                className={cn(
+                  "hidden md:inline-flex rounded-full px-8 font-bold transition-all hover:scale-105 shadow-lg",
+                  isOverDark
+                    ? "bg-white text-[#0C1A13] hover:bg-white/90"
+                    : "bg-benin-green text-white hover:bg-benin-green-dark shadow-benin-green/10"
+                )}
                 size="sm"
               >
                 Je m&apos;engage
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-md rounded-[40px] border-border/40 p-0 overflow-hidden shadow-2xl">
-              <div className="bg-benin-green p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
-                <Heart className="size-12 text-benin-yellow mb-6" fill="currentColor" />
-                <DialogTitle className="editorial-heading text-3xl mb-2 text-white">Rejoignez le mouvement</DialogTitle>
-                <DialogDescription className="text-white/70 text-lg">
-                  Contribuez à la transformation du Bénin en devenant membre actif de notre communauté.
-                </DialogDescription>
-              </div>
-              <div className="p-8 space-y-6">
-                <div className="space-y-4">
-                  <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-ink-muted" />
-                    <input 
-                      type="email" 
-                      placeholder="Votre adresse email" 
-                      className="w-full h-14 bg-surface-alt rounded-2xl pl-12 pr-4 outline-none focus:ring-2 focus:ring-benin-green/20 transition-all text-sm"
-                    />
+            <DialogContent className="sm:max-w-4xl rounded-[48px] border-none p-0 overflow-hidden shadow-2xl">
+              <div className="flex flex-col md:flex-row h-full min-h-[500px]">
+                {/* Left Side: Brand/Vision Story */}
+                <div className="md:w-5/12 bg-benin-green p-10 md:p-12 text-white relative overflow-hidden flex flex-col justify-between">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                  
+                  <div className="relative z-10">
+                    <div className="h-14 w-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-8">
+                      <Heart className="size-7 text-benin-yellow" fill="currentColor" />
+                    </div>
+                    <h2 className="editorial-heading text-4xl mb-6 leading-tight">
+                      Bâtissons <br/>
+                      <span className="text-benin-yellow italic">l&apos;avenir</span> ensemble.
+                    </h2>
+                    <p className="text-white/70 text-lg leading-relaxed mb-8">
+                      En rejoignant le mouvement Wadagni-Talata, vous ne votez pas seulement pour un duo, vous investissez dans une vision pour le Bénin.
+                    </p>
                   </div>
-                  <div className="relative">
-                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-ink-muted" />
-                    <input 
-                      type="tel" 
-                      placeholder="Téléphone (WhatsApp)" 
-                      className="w-full h-14 bg-surface-alt rounded-2xl pl-12 pr-4 outline-none focus:ring-2 focus:ring-benin-green/20 transition-all text-sm"
-                    />
+
+                  <div className="relative z-10 space-y-4">
+                    <div className="flex items-center gap-3 text-sm font-medium text-white/90">
+                      <div className="h-5 w-5 rounded-full bg-benin-yellow/20 flex items-center justify-center">
+                        <Check className="size-3 text-benin-yellow" />
+                      </div>
+                      Actualités exclusives en direct
+                    </div>
+                    <div className="flex items-center gap-3 text-sm font-medium text-white/90">
+                      <div className="h-5 w-5 rounded-full bg-benin-yellow/20 flex items-center justify-center">
+                        <Check className="size-3 text-benin-yellow" />
+                      </div>
+                      Invitations aux cercles citoyens
+                    </div>
+                    <div className="flex items-center gap-3 text-sm font-medium text-white/90">
+                      <div className="h-5 w-5 rounded-full bg-benin-yellow/20 flex items-center justify-center">
+                        <Check className="size-3 text-benin-yellow" />
+                      </div>
+                      Suivi d&apos;impact de votre département
+                    </div>
                   </div>
                 </div>
-                <Button className="w-full h-14 rounded-2xl bg-benin-green text-white font-bold text-lg">
-                  Confirmer mon engagement
-                  <ArrowRight className="ml-2 size-5" />
-                </Button>
-                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink-muted justify-center">
-                  <ShieldCheck className="size-3.5" />
-                  Données 100% sécurisées
+
+                {/* Right Side: Simple Phone Collection */}
+                <div className="md:w-7/12 bg-white p-10 md:p-16 flex flex-col justify-center relative">
+                  <div className="max-w-sm mx-auto w-full space-y-10">
+                    <div className="space-y-4 text-center md:text-left">
+                      <DialogTitle className="editorial-heading text-3xl text-ink">
+                        Devenir membre actif
+                      </DialogTitle>
+                      <DialogDescription className="text-ink-secondary text-base">
+                        Laissez votre numéro WhatsApp pour recevoir notre vision complète 2026-2031.
+                      </DialogDescription>
+                    </div>
+
+                    <div className="space-y-6">
+                      <div className="relative">
+                        <div className="absolute left-5 top-1/2 -translate-y-1/2 flex items-center gap-2 pr-3 border-r border-border">
+                          <span className="text-xs font-bold text-ink-muted">+229</span>
+                        </div>
+                        <input 
+                          type="tel" 
+                          placeholder="Votre numéro WhatsApp" 
+                          className="w-full h-16 bg-surface-alt rounded-2xl pl-20 pr-6 outline-none focus:ring-2 focus:ring-benin-green/20 transition-all text-base font-medium"
+                        />
+                      </div>
+                      
+                      <Button className="w-full h-16 rounded-2xl bg-benin-green text-white font-bold text-xl shadow-xl shadow-benin-green/20 hover:scale-[1.02] transition-transform">
+                        Rejoindre la dynamique
+                        <ArrowRight className="ml-2 size-6" />
+                      </Button>
+                    </div>
+
+                    <div className="flex flex-col items-center gap-4 text-center">
+                      <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-ink-muted">
+                        <ShieldCheck className="size-4" />
+                        Engagement 100% citoyen & sécurisé
+                      </div>
+                      <div className="h-px w-12 bg-border" />
+                      <p className="text-[10px] text-ink-muted/60 leading-relaxed uppercase tracking-widest">
+                        En vous inscrivant, vous acceptez de recevoir des communications <br/> officielles du duo Wadagni-Talata.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </DialogContent>
@@ -138,7 +218,14 @@ export function Header() {
           {/* Mobile Menu */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden text-ink hover:bg-surface-alt">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className={cn(
+                  "lg:hidden transition-colors",
+                  isOverDark ? "text-white hover:bg-white/10" : "text-ink hover:bg-surface-alt"
+                )}
+              >
                 {open ? <X className="size-6" /> : <Menu className="size-6" />}
               </Button>
             </SheetTrigger>
@@ -147,7 +234,7 @@ export function Header() {
               <div className="flex flex-col h-full">
                 <div className="mb-8 pt-4">
                   <span className="font-serif text-2xl font-bold text-ink">
-                    Wadagni<span className="text-benin-green">2026</span>
+                    Wadagni<span className="text-benin-green">Talata</span><span className="text-benin-yellow">2026</span>
                   </span>
                 </div>
                 <nav className="flex flex-col gap-2 flex-1">

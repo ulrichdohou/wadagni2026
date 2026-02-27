@@ -51,7 +51,7 @@ export function EspaceCitoyenContent() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[48px] border border-border/60 shadow-2xl p-8 md:p-16 max-w-2xl mx-auto relative overflow-hidden">
+          <div className="bg-white rounded-[48px] border border-border/60 shadow-2xl p-8 md:p-16 max-w-xl mx-auto relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-5">
               <Heart className="h-32 w-32 text-benin-green" />
             </div>
@@ -59,18 +59,10 @@ export function EspaceCitoyenContent() {
             <div className="relative z-10 space-y-10">
               <div className="grid gap-6">
                 <div className="relative">
-                  <Mail className="absolute left-5 top-1/2 -translate-y-1/2 size-5 text-ink-muted" />
-                  <input 
-                    type="email" 
-                    placeholder="Votre adresse email" 
-                    className="w-full h-16 bg-surface-alt rounded-2xl pl-14 pr-6 outline-none focus:ring-2 focus:ring-benin-green/20 transition-all text-base"
-                  />
-                </div>
-                <div className="relative">
                   <Phone className="absolute left-5 top-1/2 -translate-y-1/2 size-5 text-ink-muted" />
                   <input 
                     type="tel" 
-                    placeholder="Téléphone (WhatsApp)" 
+                    placeholder="Votre numéro WhatsApp" 
                     className="w-full h-16 bg-surface-alt rounded-2xl pl-14 pr-6 outline-none focus:ring-2 focus:ring-benin-green/20 transition-all text-base"
                   />
                 </div>

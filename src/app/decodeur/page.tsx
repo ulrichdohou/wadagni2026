@@ -4,9 +4,9 @@ import { Footer } from "@/components/layout/footer";
 import { DecoderContent } from "@/components/decoder/decoder-content";
 
 export const metadata: Metadata = {
-  title: "Le Décodeur",
+  title: "Vrai ou Faux — HORIZON BÉNIN",
   description:
-    "Vrai ou faux ? Vérifiez les rumeurs sur le bilan du gouvernement béninois avec des sources officielles.",
+    "Vrai ou faux ? Nous décryptons les rumeurs et les faits sur le bilan national avec le duo Wadagni-Talata.",
 };
 
 export default function DecodeurPage() {

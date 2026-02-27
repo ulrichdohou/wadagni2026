@@ -1,29 +1,30 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Send, Sparkles, MessageCircle, Info, ArrowRight } from "lucide-react";
+import { Send, Sparkles, MessageCircle, Info, ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Message {
-  role: "user" | "assistant";
+  role: "user" | "assistant" | "system-cta";
   content: string;
   sources?: string[];
 }
 
 const suggestedQuestions = [
-  "Qu'a fait le gouvernement pour l'eau ?",
-  "Combien d'emplois à la GDIZ ?",
-  "Bilan en éducation ?",
-  "Projets Wadagni ?",
+  "Vision de Romuald Wadagni ?",
+  "Engagement de Mariam Chabi Talata ?",
+  "Bilan 2016-2026 du gouvernement ?",
+  "Programme du duo pour 2026-2031 ?",
 ];
 
 const demoResponses: Record<string, { content: string; sources: string [] }> = {
   default: {
     content:
-      "Je suis votre Assistant pour le Bilan 2016-2026. Je peux vous éclairer sur les réalisations passées, les chantiers en cours et la vision portée par Romuald Wadagni pour l'avenir du Bénin. Quelle thématique vous intéresse aujourd'hui ?",
-    sources: ["PAG 2021-2026", "Rapport National de Développement"],
+      "Bonjour ! Bienvenue sur HORIZON BÉNIN. Nous sommes Row & Talata. Cet espace est le vôtre pour explorer notre vision pour le Bénin 2026-2031. Posez-nous vos questions sur nos projets, notre bilan ou les nouveaux horizons que nous souhaitons ouvrir pour notre nation.",
+    sources: ["Vision HORIZON BÉNIN 2026-2031", "Plan d'Action du Gouvernement"],
   },
 };
 
@@ -31,6 +32,7 @@ export function AssistantChat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [hasShownPhoneCTA, setHasShownPhoneCTA] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -45,6 +47,20 @@ export function AssistantChat() {
   useEffect(() => {
     scrollToBottom();
   }, [messages, isTyping, scrollToBottom]);
+
+  // Handle phone CTA after first response
+  useEffect(() => {
+    if (exchangeCount === 1 && !isTyping && !hasShownPhoneCTA) {
+      const timer = setTimeout(() => {
+        setMessages(prev => [...prev, {
+          role: "system-cta",
+          content: "Souhaitez-vous recevoir notre vision complète directement sur WhatsApp ?"
+        }]);
+        setHasShownPhoneCTA(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [exchangeCount, isTyping, hasShownPhoneCTA]);
 
   function handleSend() {
     const text = input.trim();
@@ -84,10 +100,10 @@ export function AssistantChat() {
              <Sparkles className="h-6 w-6" />
           </div>
           <div>
-            <h2 className="font-serif text-lg font-bold text-ink">Assistant Intelligent</h2>
+            <h2 className="font-serif text-lg font-bold text-ink">Row & Talata en direct</h2>
             <div className="flex items-center gap-1.5">
                <span className="h-2 w-2 rounded-full bg-green-500"></span>
-               <span className="text-xs text-ink-muted font-medium">Réponses basées sur les faits</span>
+               <span className="text-xs text-ink-muted font-medium">Nous vous écoutons</span>
             </div>
           </div>
         </div>
@@ -100,16 +116,16 @@ export function AssistantChat() {
       {/* Message Area */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto p-6 space-y-8 scroll-smooth"
+        className="flex-1 overflow-y-auto p-6 space-y-8 scroll-smooth relative z-10"
       >
         {messages.length === 0 && (
           <div className="h-full flex flex-col items-center justify-center text-center py-12">
             <div className="h-20 w-20 rounded-full bg-benin-green/5 flex items-center justify-center mb-6">
                <MessageCircle className="h-10 w-10 text-benin-green/40" />
             </div>
-            <h3 className="editorial-heading text-3xl text-ink mb-4">Comment puis-je <br/>vous aider ?</h3>
+            <h3 className="editorial-heading text-3xl text-ink mb-4">Comment pouvons-nous <br/>vous aider ?</h3>
             <p className="text-ink-secondary max-w-sm mx-auto mb-8">
-              Posez-moi une question sur le bilan, les projets par département ou la vision Wadagni 2026.
+              Posez-nous une question sur notre vision pour le Bénin 2026-2031 ou sur les projets à venir.
             </p>
             <div className="flex flex-wrap justify-center gap-2 max-w-lg">
                {suggestedQuestions.map(q => (
@@ -125,44 +141,74 @@ export function AssistantChat() {
           </div>
         )}
 
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={cn(
-              "flex flex-col",
-              msg.role === "user" ? "items-end" : "items-start"
-            )}
-          >
+        {messages.map((msg, i) => {
+          if (msg.role === "system-cta") {
+            return (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex justify-center my-4"
+              >
+                <div className="bg-benin-yellow/10 border border-benin-yellow/30 p-6 rounded-[32px] max-w-md text-center shadow-sm">
+                  <div className="h-10 w-10 bg-benin-yellow rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                    <Phone className="size-5" />
+                  </div>
+                  <p className="font-bold text-ink mb-4">{msg.content}</p>
+                  <div className="flex flex-col gap-3">
+                    <input 
+                      type="tel" 
+                      placeholder="Numéro WhatsApp" 
+                      className="h-12 bg-white rounded-full px-6 text-sm border border-border outline-none focus:ring-2 focus:ring-benin-yellow/20"
+                    />
+                    <Button className="rounded-full bg-benin-yellow hover:bg-benin-yellow-dark text-[#0C1A13] font-bold">
+                      Recevoir la vision
+                    </Button>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          }
+
+          return (
             <div
+              key={i}
               className={cn(
-                "max-w-[85%] p-5 shadow-sm",
-                msg.role === "user" 
-                  ? "bg-benin-green text-white rounded-[24px] rounded-tr-sm" 
-                  : "bg-surface-alt text-ink rounded-[24px] rounded-tl-sm border border-border/50"
+                "flex flex-col",
+                msg.role === "user" ? "items-end" : "items-start"
               )}
             >
-              <p className={cn(
-                "text-[15px] leading-relaxed",
-                msg.role === "assistant" ? "font-serif text-lg" : "font-medium"
-              )}>
-                {msg.content}
-              </p>
-              
-              {msg.sources && (
-                <div className="mt-4 flex flex-wrap gap-2">
-                   {msg.sources.map(s => (
-                     <span key={s} className={cn(
-                       "text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border",
-                       msg.role === "user" ? "border-white/20 bg-white/10" : "border-border bg-white text-ink-muted"
-                     )}>
-                       {s}
-                     </span>
-                   ))}
-                </div>
-              )}
+              <div
+                className={cn(
+                  "max-w-[85%] p-5 shadow-sm",
+                  msg.role === "user" 
+                    ? "bg-benin-green text-white rounded-[24px] rounded-tr-sm" 
+                    : "bg-surface-alt text-ink rounded-[24px] rounded-tl-sm border border-border/50"
+                )}
+              >
+                <p className={cn(
+                  "text-[15px] leading-relaxed",
+                  msg.role === "assistant" ? "font-serif text-lg" : "font-medium"
+                )}>
+                  {msg.content}
+                </p>
+                
+                {msg.sources && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                     {msg.sources.map(s => (
+                       <span key={s} className={cn(
+                         "text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border",
+                         msg.role === "user" ? "border-white/20 bg-white/10" : "border-border bg-white text-ink-muted"
+                       )}>
+                         {s}
+                       </span>
+                     ))}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         {isTyping && (
           <div className="flex items-start gap-3">
@@ -181,12 +227,12 @@ export function AssistantChat() {
       </div>
 
       {/* Input Area */}
-      <div className="p-6 bg-surface-alt/30 border-t border-border/40">
+      <div className="p-6 bg-surface-alt/30 border-t border-border/40 relative z-10">
         
-        {exchangeCount >= 2 && (
+        {exchangeCount >= 3 && !hasShownPhoneCTA && (
           <div className="mb-4 animate-fade-in-up">
             <div className="bg-benin-yellow/10 border border-benin-yellow/30 p-4 rounded-2xl flex items-center justify-between gap-4">
-               <p className="text-sm font-medium text-benin-yellow-dark">Prêt à rejoindre l'aventure Wadagni 2026 ?</p>
+               <p className="text-sm font-medium text-benin-yellow-dark">Prêt à rejoindre l'aventure Wadagni-Talata 2026 ?</p>
                <Button size="sm" className="bg-benin-yellow hover:bg-benin-yellow-dark text-white rounded-full h-8 px-4" asChild>
                   <Link href="/#subscribe">Je m'engage</Link>
                </Button>
@@ -206,7 +252,7 @@ export function AssistantChat() {
                 handleSend();
               }
             }}
-            placeholder="Votre question sur le Bénin..."
+            placeholder="Posez votre question à Row & Talata..."
             className="w-full h-14 pl-6 pr-16 rounded-full bg-white border border-border shadow-sm focus:ring-2 focus:ring-benin-green/20 focus:border-benin-green outline-none transition-all text-ink placeholder:text-ink-muted"
             disabled={isTyping}
           />
@@ -219,7 +265,7 @@ export function AssistantChat() {
           </button>
         </div>
         <p className="text-center text-[10px] text-ink-muted mt-4 uppercase tracking-[0.2em]">
-          Conversations sécurisées &bull; Wadagni 2026
+          Row & Talata &bull; WadagniTalata2026
         </p>
       </div>
     </div>
