@@ -1,70 +1,94 @@
 "use client";
 
-import { ArrowRight, MessageCircle, Heart } from "lucide-react";
+import { ArrowRight, MessageCircle, Heart, Mail, Phone, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TOTAL_SUPPORTERS } from "@/data/constants";
 import { waUrl } from "@/lib/whatsapp";
+import { useState } from "react";
 
 export function FinalCTA() {
-  return (
-    <section className="relative overflow-hidden py-24 md:py-32" id="subscribe">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-benin-green via-benin-green-dark to-benin-yellow-dark opacity-90" />
-      
-      {/* Decorative Organic Shapes */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-benin-yellow/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
-      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center text-white">
+  return (
+    <section className="relative overflow-hidden py-32 md:py-48" id="subscribe">
+      {/* Deep Natural Background */}
+      <div className="absolute inset-0 bg-[#0C1A13]" />
+      
+      {/* Decorative Organic Elements */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-benin-green/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-benin-yellow/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+
+      <div className="container-safe relative z-10 max-w-4xl mx-auto text-center text-white">
         
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium mb-8 border border-white/20">
-          <Heart className="size-4 text-benin-yellow" fill="currentColor" />
+        <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-10 border border-white/10">
+          <Heart className="size-4 text-benin-yellow animate-pulse" fill="currentColor" />
           <span>Déjà {TOTAL_SUPPORTERS.toLocaleString("fr-FR")} citoyens engagés</span>
         </div>
 
-        <h2 className="editorial-heading text-4xl md:text-6xl mb-6 leading-tight">
-          Ensemble, continuons <br/>
-          <span className="text-benin-yellow italic">la transformation.</span>
+        <h2 className="editorial-heading text-5xl md:text-7xl mb-8 leading-tight">
+          Écrivons la suite <br/>
+          <span className="text-benin-yellow italic">ensemble.</span>
         </h2>
 
-        <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl mx-auto">
-          Chaque voix compte, chaque action a un impact. Rejoignez dès maintenant la dynamique pour bâtir le Bénin de demain.
+        <p className="text-lg md:text-xl text-white/60 mb-16 leading-relaxed max-w-2xl mx-auto">
+          Rejoignez la dynamique citoyenne pour être informé en priorité et participer aux grands rendez-vous de la nation.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
-            size="lg" 
-            className="rounded-full bg-white text-benin-green hover:bg-white/90 font-bold px-8 h-14 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all w-full sm:w-auto"
-            asChild
-          >
-            <a href="#subscribe">
-              Rejoindre le mouvement
-              <ArrowRight className="ml-2 size-5" />
-            </a>
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="rounded-full border-2 border-white/30 hover:bg-white/10 text-white font-medium px-8 h-14 text-lg w-full sm:w-auto backdrop-blur-sm"
-            asChild
-          >
-            <a
-              href={waUrl(
-                `Je rejoins la dynamique Bénin 2026 !`
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
+        {/* Dual Input Collection Form */}
+        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-2 rounded-[40px] shadow-2xl max-w-2xl mx-auto mb-12">
+          <form className="flex flex-col md:flex-row gap-2" onSubmit={(e) => e.preventDefault()}>
+            <div className="flex-1 relative">
+              <Mail className="absolute left-5 top-1/2 -translate-y-1/2 size-4 text-white/40" />
+              <input 
+                type="email" 
+                placeholder="Votre email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full h-14 bg-transparent pl-12 pr-4 rounded-full outline-none focus:bg-white/5 transition-all text-sm"
+              />
+            </div>
+            
+            <div className="hidden md:block w-px h-8 bg-white/10 self-center" />
+            
+            <div className="flex-1 relative">
+              <Phone className="absolute left-5 top-1/2 -translate-y-1/2 size-4 text-white/40" />
+              <input 
+                type="tel" 
+                placeholder="Téléphone (WhatsApp)" 
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full h-14 bg-transparent pl-12 pr-4 rounded-full outline-none focus:bg-white/5 transition-all text-sm"
+              />
+            </div>
+
+            <Button 
+              className="h-14 px-8 rounded-full bg-benin-yellow hover:bg-benin-yellow-dark text-[#0C1A13] font-bold shadow-lg shadow-benin-yellow/20"
             >
-              <MessageCircle className="mr-2 size-5" />
-              Partager sur WhatsApp
-            </a>
-          </Button>
+              S'engager
+              <ArrowRight className="ml-2 size-5" />
+            </Button>
+          </form>
         </div>
-        
-        <p className="mt-8 text-sm text-white/40">
-          Rejoignez-nous. C'est gratuit, ouvert et citoyen.
-        </p>
+
+        <div className="flex flex-col items-center gap-6">
+          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/40">
+            <ShieldCheck className="size-3.5" />
+            Vos données sont protégées et ne seront jamais partagées.
+          </div>
+          
+          <div className="h-px w-12 bg-white/10" />
+          
+          <a
+            href={waUrl("Je souhaite rejoindre la dynamique Bénin 2026 !")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 text-white/60 hover:text-benin-yellow transition-colors"
+          >
+            <MessageCircle className="size-5 group-hover:scale-110 transition-transform" />
+            <span className="text-sm font-medium">Préférer WhatsApp pour s'inscrire</span>
+          </a>
+        </div>
       </div>
     </section>
   );

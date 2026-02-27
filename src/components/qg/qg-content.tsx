@@ -32,7 +32,7 @@ export function QGContent() {
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-benin-green/5 to-transparent -z-10" />
 
-      <div className="mx-auto max-w-[--content-max] px-6">
+      <div className="container-safe">
         
         {/* Header - Editorial Engagement Card */}
         <div className="bg-benin-green rounded-[40px] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl mb-16">

@@ -103,7 +103,7 @@ export function BeforeAfter() {
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-benin-yellow/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-benin-green/5 rounded-full blur-3xl -z-10" />
 
-      <div className="mx-auto max-w-[--content-max] px-6">
+      <div className="container-narrow">
         <div className="mb-12 md:mb-16 text-center md:text-left max-w-2xl">
           <span className="section-eyebrow mb-2 block">Impact Réel</span>
           <h2 className="editorial-heading text-3xl md:text-4xl lg:text-5xl text-ink mb-4">

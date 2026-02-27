@@ -4,6 +4,7 @@ import { Hero } from "@/components/home/hero";
 import { BeforeAfter } from "@/components/home/before-after";
 import { ChatTeaser } from "@/components/home/chat-teaser";
 import { DepartmentExplorer } from "@/components/home/department-explorer";
+import { BlogSection } from "@/components/home/blog-section";
 import { Testimonials } from "@/components/home/testimonials";
 import { FinalCTA } from "@/components/home/final-cta";
 
@@ -16,6 +17,7 @@ export default function HomePage() {
         <BeforeAfter />
         <ChatTeaser />
         <DepartmentExplorer />
+        <BlogSection />
         <Testimonials />
         <FinalCTA />
       </main>

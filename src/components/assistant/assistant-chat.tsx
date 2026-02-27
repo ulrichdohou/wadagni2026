@@ -74,10 +74,10 @@ export function AssistantChat() {
   }
 
   return (
-    <div className="flex flex-col flex-1 max-w-4xl mx-auto w-full bg-white md:my-8 md:rounded-[40px] md:border border-border/50 shadow-xl overflow-hidden min-h-[600px]">
+    <div className="flex flex-col flex-1 max-w-4xl mx-auto w-full bg-white my-12 rounded-[48px] border border-border/50 shadow-xl overflow-hidden min-h-[700px]">
       
       {/* Chat Header */}
-      <div className="bg-surface-alt/50 border-b border-border/40 p-6 flex items-center justify-between">
+      <div className="bg-surface-alt/50 border-b border-border/40 p-8 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="h-12 w-12 rounded-2xl bg-benin-green flex items-center justify-center text-white shadow-lg">
              <Sparkles className="h-6 w-6" />

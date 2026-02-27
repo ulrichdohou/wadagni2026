@@ -86,9 +86,9 @@
   --color-whatsapp-dark: #1DA851;
 
   /* === Spacing tokens === */
-  --content-max: 1140px; /* Increased from 1080px */
-  --content-wide: 1320px; /* Increased from 1280px */
-  --container-px: 2rem; /* Standard horizontal padding */
+  --content-max: 1100px; 
+  --content-wide: 1280px; 
+  --container-px: clamp(1rem, 5vw, 2.5rem); /* More balanced padding */
 
   /* === Radius === */
   --radius-card: 32px; 
@@ -96,8 +96,26 @@
   --radius-pill: 9999px;
 }
 
+.container-safe {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--content-wide);
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+.container-narrow {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--content-max);
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
 :root {
-  --radius: 1.25rem; 
+  --radius: 1.5rem; 
   --background: #FCFBF9;
   --foreground: #2D3330;
   
@@ -122,7 +140,7 @@
   --destructive: #B85C38;
   --destructive-foreground: #FFFFFF;
   
-  --border: #E6E2D8; /* Slightly softer */
+  --border: rgba(230, 226, 216, 0.6); /* Even more subtle/transparent */
   --input: #E6E2D8;
   --ring: #2E5C46;
   

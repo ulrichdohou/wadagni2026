@@ -15,7 +15,7 @@ export function Footer() {
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none" />
       
-      <div className="mx-auto max-w-[--content-wide] px-[--container-px]">
+      <div className="container-safe">
         
         {/* Top Section: Branding & Newsletter-like CTA */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">

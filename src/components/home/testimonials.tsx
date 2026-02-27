@@ -10,7 +10,7 @@ export function Testimonials() {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, var(--benin-green) 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
 
-      <div className="mx-auto max-w-[--content-max] px-6 relative z-10">
+      <div className="container-narrow relative z-10">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <span className="section-eyebrow mb-3 block">Témoignages</span>
           <h2 className="editorial-heading text-3xl md:text-5xl text-ink mb-6">

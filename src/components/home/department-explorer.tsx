@@ -19,7 +19,7 @@ export function DepartmentExplorer() {
 
   return (
     <section className="bg-surface-alt/50 py-20">
-      <div className="mx-auto max-w-[--content-max] px-6">
+      <div className="container-narrow">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">

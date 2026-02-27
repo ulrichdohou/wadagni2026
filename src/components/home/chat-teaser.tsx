@@ -6,7 +6,7 @@ import { ArrowRight, Sparkles, User } from "lucide-react";
 export function ChatTeaser() {
   return (
     <section className="bg-gradient-to-br from-benin-green/5 via-surface to-benin-yellow/5 py-20">
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="container-safe max-w-4xl">
         
         <div className="text-center mb-12">
           <span className="section-eyebrow mb-2 block">Transparence</span>

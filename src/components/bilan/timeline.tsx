@@ -130,7 +130,7 @@ export function BilanTimeline() {
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, var(--benin-green) 1px, transparent 0)', backgroundSize: '60px 60px' }}>
       </div>
 
-      <div className="mx-auto max-w-6xl px-[--container-px] relative">
+      <div className="container-safe relative">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 md:mb-32">
           <span className="section-eyebrow mb-3 block">Chronologie</span>

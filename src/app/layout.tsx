@@ -34,9 +34,9 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${outfit.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+      className={`${outfit.variable} ${newsreader.variable} ${jetbrainsMono.variable} overflow-x-hidden`}
     >
-      <body className="font-sans bg-surface text-ink antialiased">
+      <body className="font-sans bg-surface text-ink antialiased overflow-x-hidden">
         {children}
       </body>
     </html>

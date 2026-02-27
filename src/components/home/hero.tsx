@@ -14,7 +14,7 @@ const achievements = [
 export function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-surface py-12 lg:py-20">
-      <div className="mx-auto max-w-[--content-wide] px-6">
+      <div className="container-safe">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Text Content */}
