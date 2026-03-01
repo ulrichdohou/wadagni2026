@@ -79,7 +79,7 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-ink-secondary leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg sm:text-xl text-ink-secondary leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
               Le duo de l'expérience et de l'ambition pour un Bénin industriel, solidaire et souverain. Explorez 10 ans de transformation.
             </p>
 
