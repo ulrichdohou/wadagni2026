@@ -21,7 +21,7 @@ export function DecoderContent() {
         {/* Magazine-style Header */}
         <div className="grid lg:grid-cols-2 gap-12 items-end mb-20 md:mb-32">
           <div>
-            <div className="inline-flex items-center gap-2 bg-benin-red/10 text-benin-red px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
+            <div className="inline-flex items-center gap-2 bg-benin-red/10 text-benin-red px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-6">
               <ShieldCheck className="h-4 w-4" />
               Observatoire de la Vérité
             </div>
@@ -58,7 +58,7 @@ export function DecoderContent() {
                 <div className="lg:w-5/12 p-8 md:p-12 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="h-1.5 w-12 bg-benin-red rounded-full" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-benin-red">
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-benin-red">
                       Question / Rumeur
                     </span>
                   </div>
@@ -70,7 +70,7 @@ export function DecoderContent() {
                     </h3>
                   </div>
                   
-                  <div className="mt-8 flex items-center gap-2 text-[10px] font-bold text-ink-muted uppercase tracking-widest">
+                  <div className="mt-8 flex items-center gap-2 text-xs font-bold text-ink-muted uppercase tracking-widest">
                     Catégorie : <span className="text-ink">{item.category}</span>
                   </div>
                 </div>
@@ -89,7 +89,7 @@ export function DecoderContent() {
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-6">
                       <span className="h-1.5 w-12 bg-benin-green rounded-full" />
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-benin-green">
+                      <span className="text-xs font-bold uppercase tracking-[0.2em] text-benin-green">
                         La Réalité
                       </span>
                     </div>
@@ -101,11 +101,23 @@ export function DecoderContent() {
                     {/* Meta info & Actions */}
                     <div className="flex flex-wrap items-center justify-between gap-6 pt-8 border-t border-border/40">
                       <div className="flex items-center gap-3">
-                         <span className="text-[9px] font-bold text-ink-muted uppercase tracking-widest">Preuve :</span>
-                         <span className="text-xs font-bold bg-white border border-border px-4 py-2 rounded-full shadow-sm text-benin-green inline-flex items-center gap-2">
-                           <ShieldCheck className="h-3.5 w-3.5" />
-                           {item.source}
-                         </span>
+                         <span className="text-xs font-bold text-ink-muted uppercase tracking-widest">Preuve :</span>
+                         {item.sourceUrl ? (
+                           <a
+                             href={item.sourceUrl}
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             className="text-xs font-bold bg-white border border-border px-4 py-2 rounded-full shadow-sm text-benin-green inline-flex items-center gap-2 hover:bg-benin-green-muted transition-colors"
+                           >
+                             <ShieldCheck className="h-3.5 w-3.5" />
+                             {item.source}
+                           </a>
+                         ) : (
+                           <span className="text-xs font-bold bg-white border border-border px-4 py-2 rounded-full shadow-sm text-benin-green inline-flex items-center gap-2">
+                             <ShieldCheck className="h-3.5 w-3.5" />
+                             {item.source}
+                           </span>
+                         )}
                       </div>
                       <div className="flex items-center gap-3">
                         <WhatsAppShareButton
@@ -134,14 +146,15 @@ export function DecoderContent() {
                </div>
                <h2 className="editorial-heading text-4xl text-ink mb-6">Une question spécifique ?</h2>
                <p className="text-lg text-ink-secondary mb-12">
-                 Row & Talata ont été entraînés sur l'intégralité des rapports officiels pour vous répondre avec précision sur n'importe quel sujet du bilan.
+                 Le Guide Horizon a été entraîné sur la vision de Row & Talata pour vous répondre avec précision sur n'importe quel sujet.
                </p>
                <Button size="lg" className="rounded-full px-10 h-16 text-lg shadow-xl hover:shadow-2xl transition-all group/btn" asChild>
                  <Link href="/assistant">
-                   Discuter avec Row & Talata
+                   Consulter le Guide Horizon
                    <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
                  </Link>
                </Button>
+
              </div>
            </div>
         </div>

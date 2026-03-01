@@ -74,7 +74,7 @@ export function Header() {
               HORIZON <span className="text-benin-yellow">BÉNIN</span>
             </span>
             <span className={cn(
-              "text-[8px] font-bold uppercase tracking-[0.3em] mt-1 leading-none transition-colors",
+              "text-xs font-bold uppercase tracking-[0.3em] mt-1 leading-none transition-colors",
               isOverDark ? "text-white/50" : "text-ink-muted"
             )}>
               Wadagni &bull; Talata
@@ -200,12 +200,12 @@ export function Header() {
                     </div>
 
                     <div className="flex flex-col items-center gap-4 text-center">
-                      <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-ink-muted">
+                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-ink-muted">
                         <ShieldCheck className="size-4" />
                         Engagement 100% citoyen & sécurisé
                       </div>
                       <div className="h-px w-12 bg-border" />
-                      <p className="text-[10px] text-ink-muted/60 leading-relaxed uppercase tracking-widest">
+                      <p className="text-xs text-ink-muted/60 leading-relaxed uppercase tracking-widest">
                         En vous inscrivant, vous acceptez de recevoir des communications <br/> officielles du duo Wadagni-Talata.
                       </p>
                     </div>

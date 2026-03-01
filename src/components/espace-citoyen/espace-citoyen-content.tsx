@@ -38,7 +38,7 @@ export function EspaceCitoyenContent() {
 
         <div className="container-narrow">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 bg-benin-green/10 text-benin-green px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+            <div className="inline-flex items-center gap-2 bg-benin-green/10 text-benin-green px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-8">
               <Lock className="h-3.5 w-3.5" />
               Espace Réservé aux Membres
             </div>
@@ -109,7 +109,7 @@ export function EspaceCitoyenContent() {
           
           <div className="relative z-10 flex flex-col lg:flex-row gap-12 items-center lg:items-start justify-between">
             <div className="text-center lg:text-left max-w-2xl">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-8 border border-white/10">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-white/80 mb-8 border border-white/10">
                 <ShieldCheck className="h-4 w-4 text-benin-yellow" />
                 Espace Engagement Citoyen
               </div>
@@ -130,19 +130,19 @@ export function EspaceCitoyenContent() {
                 </div>
                 <div className="text-left px-4">
                   <p className="text-3xl font-serif font-bold text-benin-yellow leading-none">{points}</p>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mt-2">Points Cumulés</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mt-2">Points Cumulés</p>
                 </div>
               </div>
             </div>
 
             <div className="w-full lg:w-80 bg-[#0C1A13]/40 backdrop-blur-xl p-8 rounded-[40px] border border-white/10 self-center lg:self-end">
               <div className="flex justify-between items-end mb-4">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white/60">Progression Grade</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-white/60">Progression Grade</span>
                 <span className="text-sm font-bold text-benin-yellow">{Math.round(progressPct)}%</span>
               </div>
               <Progress value={progressPct} className="h-2.5 bg-white/10 [&>div]:bg-benin-yellow" />
               {nextLevel && (
-                <p className="text-[10px] font-bold text-white/40 mt-4 text-center uppercase tracking-[0.2em] leading-relaxed">
+                <p className="text-xs font-bold text-white/40 mt-4 text-center uppercase tracking-[0.2em] leading-relaxed">
                    Plus que <span className="text-white">{nextLevel.minPoints - points} points</span> <br/> pour le grade {nextLevel.name}
                 </p>
               )}
@@ -193,7 +193,7 @@ export function EspaceCitoyenContent() {
                         <h3 className={cn("font-serif text-2xl", isDone ? "text-ink-muted line-through" : "text-ink")}>
                           {mission.title}
                         </h3>
-                        <span className="text-[10px] font-bold bg-benin-yellow/10 text-benin-yellow-dark px-3 py-1 rounded-full uppercase tracking-widest">+{mission.points} pts</span>
+                        <span className="text-xs font-bold bg-benin-yellow/10 text-benin-yellow-dark px-3 py-1 rounded-full uppercase tracking-widest">+{mission.points} pts</span>
                       </div>
                       <p className="text-ink-secondary leading-relaxed">
                         {mission.description}
@@ -226,19 +226,19 @@ export function EspaceCitoyenContent() {
                      <Heart className="h-6 w-6 text-benin-yellow animate-pulse" fill="currentColor" />
                    </div>
                    <div className="text-right">
-                     <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/40 block mb-1">Citoyen ID</span>
+                     <span className="text-xs font-bold uppercase tracking-[0.3em] text-white/40 block mb-1">Citoyen ID</span>
                      <span className="text-xs font-mono font-bold text-white/60 tracking-wider">#W26-{points.toString().padStart(5, '0')}</span>
                    </div>
                  </div>
                  
                  <div className="mb-12">
-                   <p className="text-[10px] font-bold text-benin-yellow uppercase tracking-[0.3em] mb-3">Carte de Citoyen Engagé</p>
+                   <p className="text-xs font-bold text-benin-yellow uppercase tracking-[0.3em] mb-3">Carte de Citoyen Engagé</p>
                    <p className="font-serif text-4xl font-bold tracking-tight">Wadagni-Talata</p>
                  </div>
                  
                  <div className="flex items-end justify-between pt-8 border-t border-white/10">
                    <div>
-                     <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Grade de Mobilisation</p>
+                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Grade de Mobilisation</p>
                      <p className="font-serif text-2xl font-bold text-white">{currentLevel.name}</p>
                    </div>
                    <div className="h-16 w-16 rounded-2xl border-2 border-white/10 bg-white/5 backdrop-blur-sm flex items-center justify-center shadow-inner">
@@ -268,7 +268,7 @@ export function EspaceCitoyenContent() {
                     </div>
                     <div className="flex-1">
                       <p className="text-base font-bold text-ink group-hover:text-benin-green transition-colors">{dept.name}</p>
-                      <p className="text-[10px] font-bold text-ink-muted uppercase tracking-widest">{dept.supporters.toLocaleString("fr-FR")} Citoyens</p>
+                      <p className="text-xs font-bold text-ink-muted uppercase tracking-widest">{dept.supporters.toLocaleString("fr-FR")} Citoyens</p>
                     </div>
                     <ArrowRight className="h-4 w-4 text-border group-hover:text-benin-green group-hover:translate-x-1 transition-all" />
                   </div>

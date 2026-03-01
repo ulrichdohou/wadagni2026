@@ -50,7 +50,7 @@ function TimelineCard({
       {/* Year Display for Mobile */}
       <div className="md:hidden flex items-center gap-3 mb-4 pl-12">
         <span className="font-serif text-2xl font-bold text-ink">{event.year}</span>
-        <span className={cn("text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full border", statusColors[event.status])}>
+        <span className={cn("text-xs uppercase tracking-widest font-bold px-2 py-0.5 rounded-full border", statusColors[event.status])}>
           {event.status === 'done' ? 'Réalisé' : event.status === 'now' ? 'En cours' : 'Vision'}
         </span>
       </div>
@@ -72,7 +72,7 @@ function TimelineCard({
              <span className="font-serif text-6xl lg:text-8xl font-bold text-ink/10 block leading-none select-none">
                {event.year}
              </span>
-             <span className={cn("inline-block mt-2 text-[10px] uppercase tracking-[0.2em] font-bold px-4 py-1 rounded-full border", statusColors[event.status])}>
+             <span className={cn("inline-block mt-2 text-xs uppercase tracking-[0.2em] font-bold px-4 py-1 rounded-full border", statusColors[event.status])}>
                {event.status === 'done' ? 'Réalisé' : event.status === 'now' ? 'En cours' : 'Vision'}
              </span>
            </motion.div>
@@ -111,7 +111,7 @@ function TimelineCard({
               {event.description}
             </p>
             
-            <div className="mt-6 flex items-center gap-2 text-[10px] font-bold text-ink-muted uppercase tracking-widest">
+            <div className="mt-6 flex items-center gap-2 text-xs font-bold text-ink-muted uppercase tracking-widest">
               <span className="h-1 w-8 bg-border rounded-full" />
               <span>{event.category}</span>
             </div>

@@ -23,8 +23,8 @@ const suggestedQuestions = [
 const demoResponses: Record<string, { content: string; sources: string [] }> = {
   default: {
     content:
-      "Bonjour ! Bienvenue sur HORIZON BÉNIN. Nous sommes Row & Talata. Cet espace est le vôtre pour explorer notre vision pour le Bénin 2026-2031. Posez-nous vos questions sur nos projets, notre bilan ou les nouveaux horizons que nous souhaitons ouvrir pour notre nation.",
-    sources: ["Vision HORIZON BÉNIN 2026-2031", "Plan d'Action du Gouvernement"],
+      "Bonjour ! Bienvenue sur HORIZON BÉNIN. Je suis votre guide citoyen indépendant. Cet espace a été conçu par des sympathisants pour vous aider à explorer la vision et le bilan de Row & Talata. Posez-moi vos questions sur leurs projets, leur parcours ou leurs engagements pour le Bénin.",
+    sources: ["Vision HORIZON BÉNIN 2026-2031", "Analyse citoyenne du bilan"],
   },
 };
 
@@ -100,10 +100,10 @@ export function AssistantChat() {
              <Sparkles className="h-6 w-6" />
           </div>
           <div>
-            <h2 className="font-serif text-lg font-bold text-ink">Row & Talata en direct</h2>
+            <h2 className="font-serif text-lg font-bold text-ink">Le Guide Horizon</h2>
             <div className="flex items-center gap-1.5">
                <span className="h-2 w-2 rounded-full bg-green-500"></span>
-               <span className="text-xs text-ink-muted font-medium">Nous vous écoutons</span>
+               <span className="text-xs text-ink-muted font-medium">Réponses basées sur les faits</span>
             </div>
           </div>
         </div>
@@ -117,6 +117,8 @@ export function AssistantChat() {
       <div
         ref={scrollRef}
         className="flex-1 overflow-y-auto p-6 space-y-8 scroll-smooth relative z-10"
+        aria-live="polite"
+        aria-label="Messages du chat"
       >
         {messages.length === 0 && (
           <div className="h-full flex flex-col items-center justify-center text-center py-12">
@@ -197,7 +199,7 @@ export function AssistantChat() {
                   <div className="mt-4 flex flex-wrap gap-2">
                      {msg.sources.map(s => (
                        <span key={s} className={cn(
-                         "text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border",
+                         "text-xs font-bold uppercase tracking-widest px-2 py-0.5 rounded border",
                          msg.role === "user" ? "border-white/20 bg-white/10" : "border-border bg-white text-ink-muted"
                        )}>
                          {s}
@@ -252,20 +254,21 @@ export function AssistantChat() {
                 handleSend();
               }
             }}
-            placeholder="Posez votre question à Row & Talata..."
+            placeholder="Posez votre question au Guide Horizon..."
+            aria-label="Posez votre question au Guide Horizon"
             className="w-full h-14 pl-6 pr-16 rounded-full bg-white border border-border shadow-sm focus:ring-2 focus:ring-benin-green/20 focus:border-benin-green outline-none transition-all text-ink placeholder:text-ink-muted"
             disabled={isTyping}
-          />
-          <button
+            />
+            <button
             onClick={handleSend}
             disabled={!input.trim() || isTyping}
             className="absolute right-2 h-10 w-10 rounded-full bg-benin-green text-white flex items-center justify-center shadow-md hover:bg-benin-green-dark disabled:opacity-50 disabled:bg-ink-muted transition-all"
-          >
+            >
             <ArrowRight className="h-5 w-5" />
-          </button>
+            </button>
         </div>
-        <p className="text-center text-[10px] text-ink-muted mt-4 uppercase tracking-[0.2em]">
-          Row & Talata &bull; WadagniTalata2026
+        <p className="text-center text-xs text-ink-muted mt-4 uppercase tracking-[0.2em]">
+          Guide Citoyen &bull; HORIZON BÉNIN
         </p>
       </div>
     </div>

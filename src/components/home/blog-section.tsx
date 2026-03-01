@@ -68,7 +68,7 @@ export function BlogSection() {
               </div>
               
               <div className="space-y-4">
-                <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-ink-muted">
+                <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-ink-muted">
                   <span className="text-benin-green">{post.category}</span>
                   <span className="h-1 w-1 rounded-full bg-border" />
                   <div className="flex items-center gap-1">

@@ -21,7 +21,7 @@ export function VoterInfoSection() {
           
           {/* Text Side */}
           <div className="lg:w-1/2 text-white">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 mb-4 block">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mb-4 block">
               Civisme & Engagement
             </span>
             <h2 className="editorial-heading text-4xl md:text-6xl mb-8 leading-tight">

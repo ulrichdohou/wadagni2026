@@ -11,7 +11,7 @@ export function DuoSection() {
     <section className="py-24 bg-surface-alt/30 relative overflow-hidden">
       <div className="container-safe relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16 relative">
-          <div className="inline-flex items-center gap-2 bg-benin-yellow text-[#0C1A13] font-bold text-[10px] uppercase tracking-[0.3em] px-6 py-2 rounded-full shadow-lg mb-8 border-2 border-white">
+          <div className="inline-flex items-center gap-2 bg-benin-yellow text-[#0C1A13] font-bold text-xs uppercase tracking-[0.3em] px-6 py-2 rounded-full shadow-lg mb-8 border-2 border-white">
             Le Duo HORIZON BÉNIN
           </div>
           <span className="section-eyebrow mb-3 block">Engagement & Rigueur</span>

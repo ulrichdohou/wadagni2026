@@ -58,7 +58,7 @@ export function FinalCTA() {
         </div>
 
         <div className="flex flex-col items-center gap-6">
-          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/40">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/40">
             <ShieldCheck className="size-3.5" />
             Vos données sont protégées et ne seront jamais partagées.
           </div>

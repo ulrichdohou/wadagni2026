@@ -38,6 +38,7 @@ export interface DecoderItem {
   rumor: string;
   reality: string;
   source: string;
+  sourceUrl?: string;
   category: string;
   whatsappText: string;
 }

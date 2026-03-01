@@ -15,8 +15,8 @@ interface Message {
 const demoResponses: Record<string, { content: string; sources: string [] }> = {
   default: {
     content:
-      "Bonjour ! Nous sommes Row & Talata. Posez-nous vos questions sur notre vision pour le Bénin 2026-2031 ou sur notre bilan.",
-    sources: ["Vision Wadagni-Talata 2026", "Plan d'Action du Gouvernement"],
+      "Bonjour ! Je suis le Guide Horizon. Posez-moi vos questions sur la vision citoyenne de Row & Talata pour le Bénin 2026-2031.",
+    sources: ["Vision citoyenne 2026-2031", "Analyse du bilan national"],
   },
 };
 
@@ -77,6 +77,7 @@ export function ChatWidget() {
       {/* Floating Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Fermer le chat" : "Ouvrir le Guide Horizon"}
         className={cn(
           "fixed bottom-6 right-6 z-[110] h-16 w-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-95 group",
           isOpen ? "bg-white text-benin-green rotate-90" : "bg-benin-green text-white"
@@ -103,10 +104,10 @@ export function ChatWidget() {
                   <Sparkles className="size-5 text-benin-yellow" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold">Row & Talata</h3>
+                  <h3 className="font-serif text-lg font-bold">Guide HORIZON BÉNIN</h3>
                   <div className="flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-benin-yellow animate-pulse" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest opacity-70">En direct</span>
+                    <span className="text-xs font-bold uppercase tracking-widest opacity-70">En direct</span>
                   </div>
                 </div>
               </div>
@@ -151,7 +152,7 @@ export function ChatWidget() {
                       <p className={msg.role === "assistant" ? "font-serif text-base" : ""}>{msg.content}</p>
                       {msg.sources && (
                         <div className="mt-3 flex flex-wrap gap-1.5 opacity-60">
-                          {msg.sources.map(s => <span key={s} className="text-[8px] font-bold uppercase border border-current px-1.5 py-0.5 rounded">{s}</span>)}
+                          {msg.sources.map(s => <span key={s} className="text-xs font-bold uppercase border border-current px-1.5 py-0.5 rounded">{s}</span>)}
                         </div>
                       )}
                     </div>
@@ -176,7 +177,8 @@ export function ChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                  placeholder="Votre question..."
+                  placeholder="Votre question au Guide Horizon..."
+                  aria-label="Posez votre question au Guide Horizon"
                   className="flex-1 h-12 bg-surface-alt rounded-full px-5 text-sm outline-none focus:ring-2 focus:ring-benin-green/20 border border-transparent focus:border-benin-green/20"
                 />
                 <button onClick={handleSend} disabled={!input.trim() || isTyping} className="h-12 w-12 rounded-full bg-benin-green text-white flex items-center justify-center hover:scale-105 active:scale-95 disabled:opacity-50 transition-all">

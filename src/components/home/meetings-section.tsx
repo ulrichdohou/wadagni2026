@@ -111,12 +111,12 @@ export function MeetingsSection({ isPage = false }: MeetingsSectionProps) {
                       </div>
 
                       <div className="flex flex-col items-center gap-4 text-center">
-                        <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-ink-muted">
+                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-ink-muted">
                           <ShieldCheck className="size-4" />
                           Service gratuit & respectueux
                         </div>
                         <div className="h-px w-12 bg-border" />
-                        <p className="text-[10px] text-ink-muted/60 leading-relaxed uppercase tracking-widest">
+                        <p className="text-xs text-ink-muted/60 leading-relaxed uppercase tracking-widest">
                           Vous pourrez vous désinscrire à tout moment <br/> par un simple message WhatsApp.
                         </p>
                       </div>
@@ -139,14 +139,14 @@ export function MeetingsSection({ isPage = false }: MeetingsSectionProps) {
               className="group bg-surface-alt/40 rounded-[32px] p-8 border border-transparent hover:border-benin-green/20 hover:bg-white hover:shadow-xl transition-all duration-500 flex flex-col"
             >
               <div className="flex items-center justify-between mb-6">
-                <span className="bg-benin-green/10 text-benin-green text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                <span className="bg-benin-green/10 text-benin-green text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
                   {meeting.type}
                 </span>
                 <div className="flex flex-col items-end">
                   <span className="font-serif text-2xl font-bold text-ink leading-none">
                     {new Date(meeting.date).getDate()}
                   </span>
-                  <span className="text-[10px] font-bold uppercase text-ink-muted">
+                  <span className="text-xs font-bold uppercase text-ink-muted">
                     {new Date(meeting.date).toLocaleString('fr-FR', { month: 'short' })}
                   </span>
                 </div>

@@ -15,7 +15,7 @@ export function ChatTeaser() {
             <span className="text-benin-green">Une réponse immédiate.</span>
           </h2>
           <p className="text-lg text-ink-secondary max-w-2xl mx-auto">
-            Row & Talata analysent des milliers de documents officiels pour vous répondre en toute transparence, 24h/24.
+            Une IA entraînée sur la vision de Row & Talata analyse des milliers de documents officiels pour vous répondre en toute transparence, 24h/24.
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export function ChatTeaser() {
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="font-bold text-ink text-sm">Row & Talata</div>
+                  <div className="font-bold text-ink text-sm">Guide Horizon</div>
                   <div className="flex items-center gap-1.5">
                     <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
                     <span className="text-xs text-ink-muted font-medium">En ligne</span>
@@ -71,10 +71,10 @@ export function ChatTeaser() {
                   
                   {/* Sources chips */}
                   <div className="flex flex-wrap gap-2 pl-1">
-                    <span className="text-[10px] font-medium bg-white border border-border px-2 py-0.5 rounded-full text-ink-muted uppercase tracking-wider">
+                    <span className="text-xs font-medium bg-white border border-border px-2 py-0.5 rounded-full text-ink-muted uppercase tracking-wider">
                       Source : PAG 2021-2026
                     </span>
-                    <span className="text-[10px] font-medium bg-white border border-border px-2 py-0.5 rounded-full text-ink-muted uppercase tracking-wider">
+                    <span className="text-xs font-medium bg-white border border-border px-2 py-0.5 rounded-full text-ink-muted uppercase tracking-wider">
                       Source : Banque Mondiale
                     </span>
                   </div>

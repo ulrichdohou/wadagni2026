@@ -23,7 +23,7 @@ const badgeVariants = cva(
         rumor: "bg-benin-red-muted text-benin-red border-benin-red/20 font-semibold",
         fact: "bg-benin-green-muted text-benin-green border-benin-green/20 font-semibold",
         source:
-          "bg-benin-green-muted text-benin-green text-[10px] font-semibold px-2 py-0.5 border-benin-green/20",
+          "bg-benin-green-muted text-benin-green text-xs font-semibold px-2 py-0.5 border-benin-green/20",
         department:
           "bg-surface-alt text-ink-secondary font-medium border-transparent",
         now: "bg-benin-yellow-muted text-benin-yellow-dark border-benin-yellow/20 font-semibold",
